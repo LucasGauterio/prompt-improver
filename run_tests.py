@@ -12,17 +12,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 # Import test modules
-from tests.test_strategies import (
-    TestRoleStrategy,
-    TestFewShotStrategy,
-    TestChainOfThoughtStrategy,
-    TestSelfConsistencyStrategy,
-    TestTreeOfThoughtStrategy,
-    TestSkeletonOfThoughtStrategy,
-    TestReActStrategy
-)
+from tests.test_llm_client import TestLLMClient
+from tests.test_utils import TestUtils
+from tests.test_base_strategy import TestBaseStrategy
+from tests.test_role_strategy import TestRoleStrategy
+from tests.test_few_shot_strategy import TestFewShotStrategy
+from tests.test_chain_of_thought_strategy import TestChainOfThoughtStrategy
+from tests.test_self_consistency_strategy import TestSelfConsistencyStrategy
+from tests.test_tree_of_thought_strategy import TestTreeOfThoughtStrategy
+from tests.test_skeleton_of_thought_strategy import TestSkeletonOfThoughtStrategy
+from tests.test_react_strategy import TestReActStrategy
 from tests.test_improver import TestPromptImprover
-from tests.test_integration import TestIntegration
 
 
 def main():
@@ -33,6 +33,9 @@ def main():
     
     # Add all test classes
     test_classes = [
+        TestLLMClient,
+        TestUtils,
+        TestBaseStrategy,
         TestRoleStrategy,
         TestFewShotStrategy,
         TestChainOfThoughtStrategy,
@@ -41,7 +44,6 @@ def main():
         TestSkeletonOfThoughtStrategy,
         TestReActStrategy,
         TestPromptImprover,
-        TestIntegration,
     ]
     
     for test_class in test_classes:
@@ -58,4 +60,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
